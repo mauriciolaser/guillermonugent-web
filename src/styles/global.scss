@@ -1,5 +1,13 @@
 @use './variables' as *;
 
+@font-face {
+  font-family: 'Poma';
+  src: url('../assets/fonts/Poma_Rg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {
@@ -14,6 +22,18 @@ body {
   height: 100%;
   font-family: system-ui, -apple-system, sans-serif;
   background-color: $yellow;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+main {
+  flex: 1;
 }
 
 img {

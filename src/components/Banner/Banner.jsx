@@ -1,4 +1,4 @@
-import bannerImg from '../../images/assets/home/banner.webp';
+import bannerImg from '../../assets/images/home/banner.webp';
 import styles from './Banner.module.scss';
 
 function Banner() {

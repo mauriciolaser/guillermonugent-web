@@ -1,0 +1,106 @@
+@use '../../styles/variables' as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: $yellow;
+  z-index: 100;
+  border-bottom: 2px solid $red;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+
+  a {
+    font-family: 'Poma', sans-serif;
+    font-size: 1.25rem;
+    color: $red;
+    text-decoration: none;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: $red;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  &.active {
+    span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: $yellow;
+    border-bottom: 2px solid $red;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+
+    &.open {
+      display: flex;
+    }
+
+    a {
+      font-size: 1.5rem;
+    }
+  }
+}

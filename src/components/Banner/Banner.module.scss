@@ -1,8 +1,16 @@
+@use '../../styles/variables' as *;
+
 .banner {
   width: 100%;
+  min-height: 100vh;
+  background-color: $yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   img {
     width: 100%;
+    max-width: 1200px;
     height: auto;
   }
 }

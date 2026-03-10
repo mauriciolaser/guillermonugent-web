@@ -1,4 +1,5 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 .navbar {
   position: sticky;
@@ -16,6 +17,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @include small-mobile {
+    padding: 0.4rem 1rem;
+  }
 }
 
 .logoLink {
@@ -26,6 +31,10 @@
 .logo {
   height: 50px;
   width: auto;
+
+  @include mobile-only {
+    height: clamp(30px, 6dvh, 50px);
+  }
 }
 
 .links {

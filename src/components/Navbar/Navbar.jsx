@@ -6,6 +6,7 @@ const links = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Hoja de Vida', href: '#hoja-de-vida' },
   { label: 'Propuestas', href: '#propuestas' },
+  { label: 'Buen Gobierno', href: 'https://www.partidodelbuengobierno.pe', external: true },
 ];
 
 function Navbar() {
@@ -34,9 +35,13 @@ function Navbar() {
         </button>
 
         <ul className={`${styles.links} ${isOpen ? styles.open : ''}`}>
-          {links.map(({ label, href }) => (
+          {links.map(({ label, href, external }) => (
             <li key={href}>
-              <a href={href} onClick={handleLinkClick}>
+              <a
+                href={href}
+                onClick={handleLinkClick}
+                {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
                 {label}
               </a>
             </li>

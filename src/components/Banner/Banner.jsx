@@ -1,11 +1,19 @@
+import { useEffect, useRef } from 'react';
 import bannerDesktop from '../../assets/images/home/banner-desktop.webp';
 import bannerMobile from '../../assets/images/home/banner-mobile.webp';
 import logo from '../../assets/images/home/logo.webp';
 import styles from './Banner.module.scss';
+import { initColoredWatermarks } from '../../scripts/partidoEffects';
 
 function Banner() {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    return initColoredWatermarks(sectionRef.current);
+  }, []);
+
   return (
-    <section className={styles.banner}>
+    <section className={styles.banner} ref={sectionRef}>
       <img
         src={logo}
         alt=""

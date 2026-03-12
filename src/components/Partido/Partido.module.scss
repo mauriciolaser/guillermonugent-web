@@ -136,7 +136,7 @@
 .partidoAdorno {
   position: absolute;
   left: 50%;
-  bottom: 1.5rem;
+  bottom: 3.5rem;
   transform: translateX(-50%);
   width: min(128px, 22vw);
   max-width: 128px;
@@ -148,7 +148,36 @@
 
   @include mobile-only {
     width: min(80px, 22vw);
-    bottom: 1.75rem;
+    bottom: 5.5rem;
+  }
+}
+
+.shareButton {
+  position: absolute;
+  left: 50%;
+  bottom: 0.75rem;
+  transform: translateX(-50%);
+  z-index: 1;
+  background: none;
+  border: none;
+  color: $red;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  padding: 0.5rem 1.25rem;
+  opacity: 0.65;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @include mobile-only {
+    bottom: 1rem;
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
   }
 }
 

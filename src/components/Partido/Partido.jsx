@@ -1,11 +1,26 @@
+import { useEffect, useRef } from 'react';
 import styles from './Partido.module.scss';
 import logo from '../../assets/images/home/logo.webp';
 import partidoImg from '../../assets/images/home/partido.webp';
 import adornoImg from '../../assets/images/home/adorno.webp';
+import { initPartidoEffects } from '../../scripts/partidoEffects';
 
 function Partido({ partido }) {
+  const sectionRef = useRef(null);
+  const adornoRef = useRef(null);
+  const shareRef = useRef(null);
+
+  useEffect(() => {
+    const cleanup = initPartidoEffects(
+      sectionRef.current,
+      adornoRef.current,
+      shareRef.current,
+    );
+    return cleanup;
+  }, []);
+
   return (
-    <section id="partido" className={styles.partido}>
+    <section id="partido" className={styles.partido} ref={sectionRef}>
       <img
         src={logo}
         alt=""
@@ -55,9 +70,17 @@ function Partido({ partido }) {
         alt=""
         aria-hidden="true"
         className={styles.partidoAdorno}
+        ref={adornoRef}
         loading="lazy"
         decoding="async"
       />
+      <button
+        type="button"
+        ref={shareRef}
+        className={styles.shareButton}
+      >
+        COMPARTE
+      </button>
     </section>
   );
 }

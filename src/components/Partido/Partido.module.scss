@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 1.5rem;
+  padding: 6rem 1.5rem 8rem;
   position: relative;
   overflow: hidden;
   isolation: isolate;
@@ -81,6 +81,7 @@
   flex: 0 0 auto;
   width: min(48vw, 640px);
   margin-left: clamp(-3.5rem, -4vw, -1.5rem);
+  position: relative;
 
   @include xl-up {
     width: min(50vw, 700px);
@@ -129,6 +130,25 @@
     line-height: 1.65;
     color: #222;
     max-width: 34ch;
+  }
+}
+
+.partidoAdorno {
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  width: min(128px, 22vw);
+  max-width: 128px;
+  max-height: 128px;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+
+  @include mobile-only {
+    width: min(80px, 22vw);
+    bottom: 1.75rem;
   }
 }
 

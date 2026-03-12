@@ -29,6 +29,7 @@
   z-index: 2;
   background-color: #fff;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 5rem 1.5rem;
@@ -36,7 +37,6 @@
 
   @include mobile-only {
     padding: 4rem 1.25rem;
-    align-items: flex-start;
   }
 }
 
@@ -159,6 +159,7 @@
   z-index: 3;
   background-color: #fff;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 5rem 2rem;

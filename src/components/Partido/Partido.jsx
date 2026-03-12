@@ -1,6 +1,7 @@
 import styles from './Partido.module.scss';
 import logo from '../../assets/images/home/logo.webp';
 import partidoImg from '../../assets/images/home/partido.webp';
+import adornoImg from '../../assets/images/home/adorno.webp';
 
 function Partido({ partido }) {
   return (
@@ -49,6 +50,14 @@ function Partido({ partido }) {
           </div>
         </div>
       </div>
+      <img
+        src={adornoImg}
+        alt=""
+        aria-hidden="true"
+        className={styles.partidoAdorno}
+        loading="lazy"
+        decoding="async"
+      />
     </section>
   );
 }

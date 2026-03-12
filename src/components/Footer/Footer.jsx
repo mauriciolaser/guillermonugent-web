@@ -4,7 +4,7 @@ import logo from '../../assets/images/navbar/logo.webp';
 const links = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Hoja de Vida', href: '#bio' },
-  { label: 'Propuestas', href: '#propuestas' },
+  { label: 'Propuestas', href: '#voto' },
   { label: 'Buen Gobierno', href: '#partido' },
 ];
 

@@ -4,9 +4,9 @@ import logo from '../../assets/images/navbar/logo.webp';
 
 const links = [
   { label: 'Inicio', href: '#inicio' },
-  { label: 'Hoja de Vida', href: '#hoja-de-vida' },
+  { label: 'Hoja de Vida', href: '#bio' },
   { label: 'Propuestas', href: '#propuestas' },
-  { label: 'Buen Gobierno', href: 'https://www.partidodelbuengobierno.pe', external: true },
+  { label: 'Buen Gobierno', href: '#partido' },
 ];
 
 function Navbar() {
@@ -35,13 +35,9 @@ function Navbar() {
         </button>
 
         <ul className={`${styles.links} ${isOpen ? styles.open : ''}`}>
-          {links.map(({ label, href, external }) => (
+          {links.map(({ label, href }) => (
             <li key={href}>
-              <a
-                href={href}
-                onClick={handleLinkClick}
-                {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              >
+              <a href={href} onClick={handleLinkClick}>
                 {label}
               </a>
             </li>

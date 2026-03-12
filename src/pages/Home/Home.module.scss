@@ -1,0 +1,406 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ─── Drawer sections ──────────────────────────────────────────────────────────
+// Each section sticks at top:0 and has increasing z-index so the next one
+// slides over the previous, creating the "cajón" / drawer stacking effect.
+
+.drawer {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+// ─── Inicio (Banner) ──────────────────────────────────────────────────────────
+
+.inicio {
+  z-index: 1;
+  background-color: $yellow;
+  display: flex;
+  flex-direction: column;
+}
+
+// ─── Bio ──────────────────────────────────────────────────────────────────────
+
+.bio {
+  z-index: 2;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.5rem;
+  position: relative;
+  isolation: isolate;
+
+  @include mobile-only {
+    padding: 4rem 1.25rem;
+    align-items: flex-start;
+  }
+}
+
+.bioWatermark {
+  position: absolute;
+  left: -18%;
+  top: 62%;
+  transform: translateY(-50%) rotate(8deg);
+  width: clamp(300px, 46vw, 700px);
+  height: auto;
+  opacity: 0.05;
+  filter: grayscale(1) contrast(0.9) brightness(1.1);
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(
+    circle at 40% 55%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.9) 45%,
+    rgba(0, 0, 0, 0) 72%
+  );
+  mask-image: radial-gradient(
+    circle at 40% 55%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.9) 45%,
+    rgba(0, 0, 0, 0) 72%
+  );
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+
+  @include mobile-only {
+    left: -45%;
+    top: 50%;
+    width: clamp(280px, 70vw, 760px);
+    opacity: 0.04;
+    transform: translateY(-50%) rotate(10deg);
+  }
+}
+
+.bioInner {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+
+  @include mobile-only {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.bioImage {
+  flex: 0 0 auto;
+  width: 320px;
+
+  @include mobile-only {
+    width: 100%;
+    max-width: 300px;
+    align-self: center;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+}
+
+.bioText {
+  flex: 1;
+
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: $red;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.02em;
+  }
+
+  p {
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    font-weight: 400;
+    line-height: 1.8;
+    color: #333;
+  }
+}
+
+// ─── Propuestas ───────────────────────────────────────────────────────────────
+
+.propuestas {
+  position: relative;
+  z-index: 3;
+  background-color: $yellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.5rem;
+  min-height: auto;
+  isolation: isolate;
+
+  @include mobile-only {
+    padding: 4rem 1.25rem;
+    justify-content: flex-start;
+  }
+}
+
+.propuestasWatermark {
+  position: absolute;
+  right: -16%;
+  top: 30%;
+  transform: translateY(-50%) rotate(-14deg);
+  width: clamp(340px, 50vw, 840px);
+  height: auto;
+  opacity: 0.05;
+  filter: grayscale(1) contrast(0.9) brightness(1.05);
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(
+    circle at 65% 40%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.9) 45%,
+    rgba(0, 0, 0, 0) 72%
+  );
+  mask-image: radial-gradient(
+    circle at 65% 40%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.9) 45%,
+    rgba(0, 0, 0, 0) 72%
+  );
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+
+  @include mobile-only {
+    right: -40%;
+    top: 35%;
+    width: clamp(320px, 75vw, 820px);
+    opacity: 0.04;
+    transform: translateY(-50%) rotate(-16deg);
+  }
+}
+
+.propuestasTitle {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: $red;
+  text-align: center;
+  margin-bottom: 3.5rem;
+  letter-spacing: 0.02em;
+  width: 100%;
+  max-width: 1100px;
+  position: relative;
+  z-index: 1;
+}
+
+.propuestasList {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.propuesta {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+
+  @include mobile-only {
+    flex-direction: column !important;
+    gap: 1.75rem;
+  }
+}
+
+.propuestaImage {
+  flex: 0 0 auto;
+  width: 400px;
+
+  @include mobile-only {
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+}
+
+.propuestaText {
+  flex: 1;
+
+  h3 {
+    font-size: clamp(1.3rem, 2.2vw, 1.85rem);
+    font-weight: 700;
+    color: $red;
+    margin-bottom: 1rem;
+    letter-spacing: 0.01em;
+  }
+
+  p {
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+    font-weight: 400;
+    line-height: 1.8;
+    color: #222;
+  }
+}
+
+// ─── Partido ──────────────────────────────────────────────────────────────────
+
+.partido {
+  z-index: 4;
+  background-color: $red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  @include mobile-only {
+    padding: 4rem 1.25rem;
+    align-items: flex-start;
+  }
+}
+
+.partidoWatermark {
+  position: absolute;
+  height: auto;
+  opacity: 0.08;
+  filter: grayscale(1) brightness(3) contrast(0.9);
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(
+    circle at 55% 45%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.85) 52%,
+    rgba(0, 0, 0, 0) 78%
+  );
+  mask-image: radial-gradient(
+    circle at 55% 45%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.85) 52%,
+    rgba(0, 0, 0, 0) 78%
+  );
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+
+  @include mobile-only {
+    opacity: 0.06;
+  }
+}
+
+.partidoWm1 {
+  left: -6%;
+  top: 22%;
+  width: clamp(140px, 16vw, 220px);
+  transform: rotate(12deg);
+}
+
+.partidoWm2 {
+  right: 6%;
+  top: 48%;
+  width: clamp(160px, 18vw, 260px);
+  transform: rotate(-14deg);
+}
+
+.partidoWm3 {
+  right: -4%;
+  bottom: -2%;
+  width: clamp(180px, 20vw, 300px);
+  transform: rotate(-8deg);
+  opacity: 0.06;
+
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.partidoInner {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+
+  @include mobile-only {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.partidoImage {
+  flex: 0 0 auto;
+  width: 320px;
+
+  @include mobile-only {
+    width: 100%;
+    max-width: 300px;
+    align-self: center;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+}
+
+.partidoText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: $yellow;
+    letter-spacing: 0.02em;
+  }
+
+  p {
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    font-weight: 400;
+    line-height: 1.8;
+    color: #fff;
+  }
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.75rem 2rem;
+  background-color: $yellow;
+  color: $red;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}

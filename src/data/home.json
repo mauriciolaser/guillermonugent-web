@@ -1,0 +1,26 @@
+{
+  "bio": {
+    "title": "Sobre Mí",
+    "body": "Soy Guillermo Nugent, sociólogo, escritor y candidato al Senado de la República. He dedicado mi vida al estudio de la democracia, la cultura y los derechos ciudadanos. Creo en una política honesta, basada en el diálogo y el compromiso real con el bienestar de todos los peruanos."
+  },
+  "propuestas": [
+    {
+      "id": 1,
+      "title": "Educación de Calidad para Todos",
+      "imageKey": "prop1",
+      "body": "Impulsaremos una reforma educativa que garantice acceso igualitario a una educación de calidad en todo el territorio nacional, con énfasis en la formación docente, infraestructura escolar y herramientas tecnológicas para el aprendizaje del siglo XXI."
+    },
+    {
+      "id": 2,
+      "title": "Salud como Derecho Fundamental",
+      "imageKey": "prop2",
+      "body": "Trabajaremos por un sistema de salud público robusto, con hospitales bien equipados, médicos dignamente remunerados y acceso universal a medicamentos esenciales. La salud no puede seguir siendo un privilegio; es un derecho de todos los peruanos."
+    }
+  ],
+  "partido": {
+    "title": "Partido del Buen Gobierno",
+    "body": "El Partido del Buen Gobierno representa los valores de transparencia, responsabilidad y compromiso ciudadano. Juntos construimos una visión de país donde las instituciones funcionan para todos y la política se ejerce con honestidad.",
+    "ctaLabel": "Conocer más",
+    "ctaHref": "https://www.partidodelbuengobierno.pe"
+  }
+}

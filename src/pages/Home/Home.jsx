@@ -1,17 +1,11 @@
 import Banner from '../../components/Banner/Banner';
+import Partido from '../../components/Partido/Partido';
+import PropuestaCard from '../../components/PropuestaCard/PropuestaCard';
 import data from '../../data/home.json';
 import styles from './Home.module.scss';
 
 import bioImg from '../../assets/images/home/bio.webp';
 import logo from '../../assets/images/home/logo.webp';
-import prop1Img from '../../assets/images/home/prop1.webp';
-import prop2Img from '../../assets/images/home/prop2.webp';
-import partidoImg from '../../assets/images/home/partido.webp';
-
-const imageMap = {
-  prop1: prop1Img,
-  prop2: prop2Img,
-};
 
 function Home() {
   return (
@@ -42,6 +36,11 @@ function Home() {
         </div>
       </section>
 
+      {/* Voto */}
+      <section id="voto" className={`${styles.drawer} ${styles.voto}`}>
+        <p className={styles.votoText}>{data.voto.text}</p>
+      </section>
+
       {/* Propuestas */}
       <section id="propuestas" className={styles.propuestas}>
         <img
@@ -52,69 +51,15 @@ function Home() {
           loading="lazy"
           decoding="async"
         />
-        <h2 className={styles.propuestasTitle}>Mis propuestas</h2>
         <div className={styles.propuestasList}>
-          {data.propuestas.map((prop, index) => (
-            <div
-              key={prop.id}
-              className={`${styles.propuesta} ${index % 2 !== 0 ? styles.reverse : ''}`}
-            >
-              <div className={styles.propuestaImage}>
-                <img src={imageMap[prop.imageKey]} alt={prop.title} />
-              </div>
-              <div className={styles.propuestaText}>
-                <h3>{prop.title}</h3>
-                <p>{prop.body}</p>
-              </div>
-            </div>
+          {data.propuestas.map((prop) => (
+            <PropuestaCard key={prop.id} title={prop.title} body={prop.body} />
           ))}
         </div>
       </section>
 
       {/* Partido */}
-      <section id="partido" className={`${styles.drawer} ${styles.partido}`}>
-        <img
-          src={logo}
-          alt=""
-          aria-hidden="true"
-          className={`${styles.partidoWatermark} ${styles.partidoWm1}`}
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-          src={logo}
-          alt=""
-          aria-hidden="true"
-          className={`${styles.partidoWatermark} ${styles.partidoWm2}`}
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-          src={logo}
-          alt=""
-          aria-hidden="true"
-          className={`${styles.partidoWatermark} ${styles.partidoWm3}`}
-          loading="lazy"
-          decoding="async"
-        />
-        <div className={styles.partidoInner}>
-          <div className={styles.partidoImage}>
-            <img src={partidoImg} alt={data.partido.title} />
-          </div>
-          <div className={styles.partidoText}>
-            <h2>{data.partido.title}</h2>
-            <p>{data.partido.body}</p>
-            <a
-              href={data.partido.ctaHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.cta}
-            >
-              {data.partido.ctaLabel}
-            </a>
-          </div>
-        </div>
-      </section>
+      <Partido partido={data.partido} />
     </>
   );
 }

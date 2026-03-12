@@ -1,5 +1,5 @@
 import styles from './Footer.module.scss';
-import logo from '../../assets/images/home/logo.webp';
+import logo from '../../assets/images/navbar/logo.webp';
 
 const links = [
   { label: 'Inicio', href: '#inicio' },
@@ -11,17 +11,10 @@ const links = [
 function Footer() {
   return (
     <footer className={styles.footer}>
-      <img
-        src={logo}
-        alt=""
-        aria-hidden="true"
-        className={styles.backgroundLogo}
-        loading="lazy"
-        decoding="async"
-      />
-
       <div className={styles.inner}>
-        <h2 className={styles.title}>Guillermo Nugent</h2>
+        <a href="#inicio" className={styles.logoLink}>
+          <img src={logo} alt="Guillermo Nugent" className={styles.logo} />
+        </a>
 
         <nav className={styles.links} aria-label="Enlaces del sitio">
           {links.map(({ label, href }) => (

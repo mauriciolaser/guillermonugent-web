@@ -19,6 +19,10 @@
 
 html {
   overflow-x: clip;
+
+  @include desktop-up {
+    font-size: 18px;
+  }
 }
 
 body {

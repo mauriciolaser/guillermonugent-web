@@ -10,12 +10,20 @@
   align-items: center;
   padding: 2rem 1rem;
   min-height: 0;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 
   @include mobile-only {
     padding: clamp(0.25rem, 2dvh, 2rem) 1rem;
   }
 
-  img {
+  picture {
+    position: relative;
+    z-index: 1;
+  }
+
+  picture img {
     width: 100%;
     max-width: 900px;
     height: auto;
@@ -24,5 +32,40 @@
       max-height: 100%;
       object-fit: contain;
     }
+  }
+}
+
+.bannerWatermark {
+  position: absolute;
+  right: -10%;
+  top: 52%;
+  transform: translateY(-50%) rotate(-10deg);
+  width: clamp(320px, 42vw, 700px);
+  height: auto;
+  opacity: 0.05;
+  filter: grayscale(1) contrast(0.9) brightness(1.05);
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(
+    circle at 55% 45%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.9) 45%,
+    rgba(0, 0, 0, 0) 72%
+  );
+  mask-image: radial-gradient(
+    circle at 55% 45%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.9) 45%,
+    rgba(0, 0, 0, 0) 72%
+  );
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+
+  @include mobile-only {
+    right: -38%;
+    top: 54%;
+    width: clamp(280px, 72vw, 640px);
+    opacity: 0.04;
+    transform: translateY(-50%) rotate(-12deg);
   }
 }

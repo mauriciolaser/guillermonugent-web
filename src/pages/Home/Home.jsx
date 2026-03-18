@@ -31,7 +31,20 @@ function Home() {
           </div>
           <div className={styles.bioText}>
             <h2>{data.bio.title}</h2>
-            <p>{data.bio.body}</p>
+            <p>
+              Soy <span style={{ fontWeight: 600 }}>Guillermo Nugent</span>,
+              historiador, sociólogo y docente en la UNMSM. Nací en Miraflores y
+              mi madre enseñó en una escuela pública de este distrito. Como
+              catedrático, durante décadas he vivido el histórico{' '}
+              <span style={{ color: '#D40E0B', fontWeight: 600 }}>
+                abandono de la universidad pública
+              </span>{' '}
+              y he sido testigo de la lucha de muchos jóvenes por una{' '}
+              <span style={{ fontWeight: 600 }}>mejor educación</span>. Y, como
+              millones de peruanos, he visto también cómo la falta de
+              trayectorias sólidas y confiables en los principales puestos del
+              Estado degrada la calidad de los servicios públicos.
+            </p>
           </div>
         </div>
       </section>

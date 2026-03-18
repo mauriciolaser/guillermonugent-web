@@ -11,18 +11,18 @@
       "id": 1,
       "title": "1. Educación Pública de Calidad",
       "imageKey": "prop1",
-      "body": "Impulsaremos una reforma educativa para garantizar el acceso igualitario a una educación de calidad en todo el país, con énfasis en la educación pública universitaria. Cambiar..."
+      "body": "Impulsaré una reforma educativa para garantizar el acceso igualitario a una educación de calidad en todo el país, con énfasis en la educación pública universitaria."
     },
     {
       "id": 2,
-      "title": "2. Evaluación de Funcionarios Públicos",
+      "title": "2. Funcionarios Públicos de Calidad",
       "imageKey": "prop2",
-      "body": "Trabajaremos para reformar la forma en que se evalúan los candidatos a los puestos clave del Estado. Cambiar..."
+      "body": "Trabajaré para reformar la forma en que se evalúan los candidatos a los puestos clave del Estado."
     }
   ],
   "partido": {
-    "title": "Nuestro Partido...",
-    "body": "El Partido del Buen Gobierno representa los valores de transparencia, responsabilidad y compromiso ciudadano... Cambiar.",
+    "title": "Nuestro Partido",
+    "body": "El Partido del Buen Gobierno representa los valores de transparencia, responsabilidad y compromiso ciudadano.",
     "ctaLabel": "Conocer más",
     "ctaHref": "https://partidodelbuengobierno.pe",
     "ctaPlanLabel": "Plan de Gobierno",

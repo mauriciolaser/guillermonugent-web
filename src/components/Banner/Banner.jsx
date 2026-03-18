@@ -23,7 +23,7 @@ function Banner() {
         decoding="async"
       />
       <picture>
-        <source media="(max-width: 768px)" srcSet={bannerMobile} />
+        <source media="(max-width: 768px) and (orientation: portrait)" srcSet={bannerMobile} />
         <img src={bannerDesktop} alt="Guillermo Nugent" />
       </picture>
     </section>

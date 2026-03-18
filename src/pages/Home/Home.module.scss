@@ -14,7 +14,7 @@
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
 
   @include mobile-only {
-    min-height: auto;
+    min-height: 100dvh;
     overflow: visible;
   }
 }
@@ -26,6 +26,13 @@
   background-color: $yellow;
   display: flex;
   flex-direction: column;
+
+  @include mobile-only {
+    height: 100dvh;
+    min-height: 0;
+    max-height: 100dvh;
+    overflow: hidden;
+  }
 }
 
 // ─── Bio ──────────────────────────────────────────────────────────────────────
@@ -41,7 +48,11 @@
   isolation: isolate;
 
   @include mobile-only {
-    padding: 4rem 1.25rem;
+    padding: 2.5rem 1.25rem;
+    height: 100dvh;
+    min-height: 0;
+    max-height: 100dvh;
+    justify-content: center;
   }
 }
 
@@ -97,7 +108,7 @@
 
   @include mobile-only {
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 1.5rem;
   }
 }
 
@@ -111,8 +122,12 @@
 
   @include mobile-only {
     width: 100%;
-    max-width: 400px;
+    max-width: 220px;
     align-self: center;
+
+    @media (orientation: portrait) {
+      display: none;
+    }
   }
 
   img {
@@ -128,7 +143,7 @@
   flex: 1;
 
   h2 {
-    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
     font-weight: 800;
     color: $red;
     margin-bottom: 1rem;
@@ -157,7 +172,8 @@
     margin-top: 1.5rem;
 
     @include mobile-only {
-      line-height: 1.55;
+      font-size: 1.1rem;
+      line-height: 1.4;
     }
   }
 }

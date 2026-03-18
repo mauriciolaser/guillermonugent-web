@@ -3,7 +3,8 @@
     "allow": [
       "Bash(npm run:*)",
       "Bash(npx vite:*)",
-      "Bash(find /c/Development/guillermonugent-web/src -type f -name *oto* -o -name *oto*)"
+      "Bash(find /c/Development/guillermonugent-web/src -type f -name *oto* -o -name *oto*)",
+      "Bash(find /c/Development/guillermonugent-web/src/components/Banner -type f -name *)"
     ]
   }
 }

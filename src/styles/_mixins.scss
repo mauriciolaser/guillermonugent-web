@@ -36,6 +36,13 @@ $bp-xl: 1440px;
   }
 }
 
+// Android-small: covers narrower Android viewports (360px etc.) without affecting iPhone (375px+)
+@mixin android-small {
+  @media (max-width: 374px) {
+    @content;
+  }
+}
+
 // Landscape mobile
 @mixin landscape-mobile {
   @media (max-width: $bp-tablet) and (orientation: landscape) {

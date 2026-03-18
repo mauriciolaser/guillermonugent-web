@@ -147,10 +147,10 @@ export function initColoredWatermarks(sectionEl, count = WATERMARK_COUNT) {
   };
 }
 
-/* ── Share button ── */
+/* ── Share handler ── */
 
-function initShareButton(buttonEl) {
-  const handleClick = async () => {
+function createShareHandler(feedbackEl) {
+  return async () => {
     const shareData = {
       title: 'Guillermo Nugent — Candidato al Senado',
       text: 'Conoce a Guillermo Nugent, candidato al Senado por el Partido del Buen Gobierno.',
@@ -167,15 +167,20 @@ function initShareButton(buttonEl) {
       // Fallback: copy link
       try {
         await navigator.clipboard.writeText(window.location.href);
-        const original = buttonEl.textContent;
-        buttonEl.textContent = '¡ENLACE COPIADO!';
-        setTimeout(() => { buttonEl.textContent = original; }, 2000);
+        if (feedbackEl) {
+          const original = feedbackEl.textContent;
+          feedbackEl.textContent = '¡ENLACE COPIADO!';
+          setTimeout(() => { feedbackEl.textContent = original; }, 2000);
+        }
       } catch {
         /* ignore */
       }
     }
   };
+}
 
+function initShareButton(buttonEl) {
+  const handleClick = createShareHandler(buttonEl);
   buttonEl.addEventListener('click', handleClick);
   return () => buttonEl.removeEventListener('click', handleClick);
 }
@@ -185,7 +190,17 @@ function initShareButton(buttonEl) {
 export function initPartidoEffects(sectionEl, adornoEl, shareButtonEl) {
   const cleanups = [];
 
-  if (adornoEl) cleanups.push(initAdornoAnimation(adornoEl));
+  if (adornoEl) {
+    cleanups.push(initAdornoAnimation(adornoEl));
+    // Adorno also triggers share
+    adornoEl.style.cursor = 'pointer';
+    const handleAdornoClick = createShareHandler(shareButtonEl);
+    adornoEl.addEventListener('click', handleAdornoClick);
+    cleanups.push(() => {
+      adornoEl.removeEventListener('click', handleAdornoClick);
+      adornoEl.style.cursor = '';
+    });
+  }
   if (sectionEl) cleanups.push(initColoredWatermarks(sectionEl));
   if (shareButtonEl) cleanups.push(initShareButton(shareButtonEl));
 

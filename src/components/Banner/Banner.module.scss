@@ -32,6 +32,11 @@
       max-height: 100%;
       object-fit: contain;
     }
+
+    @include landscape-mobile {
+      max-width: 480px;
+      max-height: 70dvh;
+    }
   }
 }
 
